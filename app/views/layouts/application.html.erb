@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bbq</title>
+    <title>BBQ!</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,35 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid ms-5">
+        <%= link_to 'BBQ!', root_path, class: 'navbar-brand fw-bold' %>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <% if flash[:notice].present? %>
+      <p class="alert alert-success"><%= flash[:notice] %></p>
+    <% elsif flash[:alert].present? %>
+      <p class="alert alert-danger"><%= flash[:alert] %></p>
+    <% end %>
+
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
