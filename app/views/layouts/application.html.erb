@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BBQ!</title>
+    <title><%= t('app.name') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,10 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <div class="container-fluid ms-5">
-        <%= link_to 'BBQ!', root_path, class: 'navbar-brand fw-bold' %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand fw-bold' %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +38,6 @@
                   class: 'nav-link active' %>
               </li>
             <% end %>
-
-            <!-- <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Link</a>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -56,8 +49,17 @@
       <p class="alert alert-danger"><%= flash[:alert] %></p>
     <% end %>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-3">
       <%= yield %>
     </div>
+
+    <footer class="bg-dark text-center text-white mt-auto">
+      <div class="text-center p-3">
+        &copy
+        <%= link_to t('app.company'), 'https://goodprogrammer.ru',
+          class: 'text-white' %>
+        2023
+      </div>
+    </footer>
   </body>
 </html>

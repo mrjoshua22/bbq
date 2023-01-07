@@ -8,7 +8,7 @@
       <div class="caption">
         <div class="event-description mx-4">
           <h3><%= link_to event.title, event_path(event) %></h3>
-          <h4><small><%= event.datetime %></small></h4>
+          <h4><small><%= l event.datetime, format: :long %></small></h4>
           <div class="buffer-both"><%= event.address %></div>
         </div>
       </div>

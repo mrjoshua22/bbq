@@ -5,7 +5,8 @@
     <%= render 'form', user: @user %>
 
     <p class="buffer-top">
-      <%= link_to 'Сменить пароль', edit_user_registration_path %>
+      <%= link_to 'Сменить пароль', edit_user_registration_path,
+        class: 'text-decoration-none' %>
     </p>
   </div>
 </div>
