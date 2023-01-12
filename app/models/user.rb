@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :events
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :subscriptions
 
   before_validation :set_name, on: :create
