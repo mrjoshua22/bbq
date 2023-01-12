@@ -1,0 +1,36 @@
+<h2 class="text-center">Регистрация нового пользователя</h2>
+
+<div class="container d-flex justify-content-center">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
+    data: { turbo: false }) do |f| %>
+
+    <%= render 'devise/shared/error_messages', resource: resource %>
+
+    <div class="input-group my-4">
+      <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Email',
+        autofocus: true, autocomplete: 'email' %>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'Password',
+        autocomplete: 'new-password' %>
+    </div>
+
+    <% if @minimum_password_length %>
+      <em>(Минимум <%= @minimum_password_length %> символов)</em>
+    <% end %>
+
+    <div class="input-group mb-4 mt-3">
+      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+      <%= f.password_field :password_confirmation, class: 'form-control',
+        placeholder: 'Password confirmation', autocomplete: 'new-password' %>
+    </div>
+
+    <div class="actions mb-4">
+      <%= f.submit 'Зарегистрироваться', class: 'btn btn-primary' %> или
+      <%= link_to 'вернуться', :back, class: 'text-decoration-none' %>
+    </div>
+  <% end %>
+</div>
