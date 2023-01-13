@@ -11,7 +11,7 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.4"
-gem "russian"
+gem 'rails-i18n', '~> 7.0.0'
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
