@@ -14,6 +14,12 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      comment:
+        body: 'Текст комментария'
+        user_name: 'Ваше имя'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Email'
     errors:
       check_email_owner: 'занят. Войдите чтобы подписаться на событие.'
       forbid_subscription: 'не может подписаться на созданное им событие'
