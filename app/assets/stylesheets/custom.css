@@ -37,3 +37,19 @@
 .thumbnail-inner {
   padding: 20px 4px 4px;
 }
+
+/* Combine button and links with Bottstrap buttons group */
+
+.button-left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.button-right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.button-center {
+  border-radius: 0;
+}
