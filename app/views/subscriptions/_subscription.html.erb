@@ -6,6 +6,7 @@
   <% end %>
   <% if current_user_can_edit?(subscription) %>
     <%= link_to event_subscription_path(subscription.event, subscription),
+      class: 'text-decoration-none',
       data: { turbo_method: :delete, turbo_confirm: t('.destroy_confirm') } do %>
         <i class="bi bi-x"></i>
     <% end %>
