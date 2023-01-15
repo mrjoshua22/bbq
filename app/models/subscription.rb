@@ -11,6 +11,8 @@ class Subscription < ApplicationRecord
   validates :user_email, uniqueness: { scope: :event_id },
     unless: -> { user.present? }
 
+  validate :forbid_event_creator_to_subscribe, on: :create
+
   def user_name
     if user.present?
       user.name
@@ -24,6 +26,17 @@ class Subscription < ApplicationRecord
       user.email
     else
       super
+    end
+  end
+
+  private
+
+  def forbid_event_creator_to_subscribe
+    if event.user == user
+      errors.add(
+        :user_id,
+        I18n.t('activerecord.errors.forbid_subscription')
+      )
     end
   end
 end

@@ -14,6 +14,8 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+    errors:
+      forbid_subscription: 'не может подписаться на созданное им событие'
   
   controllers:
     events:
@@ -42,6 +44,10 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
+  events:
+    show:
+      destroy_confirm: 'Вы точно хотите удалить это событие?'
 
   error:
     one: '%{count} ошибка'
