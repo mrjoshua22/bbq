@@ -44,9 +44,19 @@
     </nav>
 
     <% if flash[:notice].present? %>
-      <p class="alert alert-success"><%= flash[:notice] %></p>
+      <div data-controller="flash" class="alert alert-success alert-dismissible fade show"
+        data-timeout="3000" role="alert">
+        <%= flash[:notice] %>
+        <button data-action="flash#dismiss" type="button" class="btn-close"
+          data-bs-dismiss="alert" aria-label="Close">
+      </div>
     <% elsif flash[:alert].present? %>
-      <p class="alert alert-danger"><%= flash[:alert] %></p>
+      <div data-controller="flash" class="alert alert-danger alert-dismissible fade show"
+        data-timeout="3000" role="alert">
+        <%= flash[:alert] %>
+        <button data-action="flash#dismiss" type="button" class="btn-close"
+          data-bs-dismiss="alert" aria-label="Close">
+      </div>
     <% end %>
 
     <div class="container mt-4 mb-4">
