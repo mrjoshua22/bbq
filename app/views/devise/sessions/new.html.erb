@@ -1,4 +1,4 @@
-<h2 class="text-center"><%= t('devise.sessions.new.header') %></h2>
+<h2 class="text-center"><%= t('.header') %></h2>
 
 <div class="container d-flex justify-content-center">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name),
@@ -7,14 +7,14 @@
     <div class="input-group mb-4 mt-3">
       <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
       <%= f.email_field :email, class: 'form-control',
-        placeholder: t('devise.sessions.new.email_placeholder'),
+        placeholder: t('.email_placeholder'),
         autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="input-group mb-4 mt-3">
       <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
       <%= f.password_field :password, class: 'form-control',
-        placeholder: t('devise.sessions.new.password_placeholder'),
+        placeholder: t('.password_placeholder'),
         autocomplete: "current-password" %>
     </div>
 
@@ -26,7 +26,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit t('devise.sessions.new.submit'), class: 'btn btn-primary' %> или
+      <%= f.submit t('.submit'), class: 'btn btn-primary' %> или
       <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>
     </div>
   <% end %>

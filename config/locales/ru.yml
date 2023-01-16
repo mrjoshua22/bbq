@@ -40,26 +40,26 @@ ru:
       error: 'Подписка/отписка не сработала'
       email_error: 'Пользователь с такой почтой уже существует. Выполните вход чтобы подписаться или введите другой адрес электронной почты.'
   
-  views:
-    users:
-      edit: 
-        header: 'Редактировать профиль'
-      show:
-        organized: 'Организовал:'
-        no_events: 'Пользователь пока не организовал ни одного события'
-    events:
-      index:
-        header: 'События'
-      new:
-        header: 'Новое событие'
-      show:
-        call: 'Зовет:'
-        will_come: 'Пойдут:'
-        will_go: 'Я пойду:'
-      edit:
-        header: 'Редактирование события'
-    partials:
-      form_errors_count: 'В вашей форме'
+  users:
+    edit: 
+      header: 'Редактировать профиль'
+    show:
+      organized: 'Организовал:'
+      no_events: 'Пользователь пока не организовал ни одного события'
+  events:
+    index:
+      header: 'События'
+    new:
+      header: 'Новое событие'
+    show:
+      call: 'Зовет:'
+      will_come: 'Пойдут:'
+      will_go: 'Я пойду:'
+      destroy_confirm: 'Вы точно хотите удалить это событие?'
+    edit:
+      header: 'Редактирование события'
+  partials:
+    form_errors_count: 'В вашей форме'
 
   app:
     name: 'Шашлыки'
@@ -72,10 +72,6 @@ ru:
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
-
-  events:
-    show:
-      destroy_confirm: 'Вы точно хотите удалить это событие?'
 
   error:
     one: '%{count} ошибка'
@@ -123,10 +119,11 @@ ru:
         email_placeholder: 'Email'
         password_placeholder: 'Пароль'
         submit: 'Войти'
-    links:
-      log_in: 'Войти'
-      sign_up: 'Зарегистрироваться'
-      forgot_password: 'Забыли пароль?'
-      no_confirmation_instructions: 'Не получили инструкций для подтверждения почты?'
-      no_unlock_instructions: 'Не получили инструкций для разблокировки?'
-      sign_in_with: "Войти с помощью %{omniauth}"
+    shared:
+      links:
+        log_in: 'Войти'
+        sign_up: 'Зарегистрироваться'
+        forgot_password: 'Забыли пароль?'
+        no_confirmation_instructions: 'Не получили инструкций для подтверждения почты?'
+        no_unlock_instructions: 'Не получили инструкций для разблокировки?'
+        sign_in_with: "Войти с помощью %{omniauth}"

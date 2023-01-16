@@ -42,11 +42,11 @@
 
     <div class="col-md-4">
       <div class="event-owner">
-        <h4><%= t('views.events.show.call') %></h4>
+        <h4><%= t('.call') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <div class="event-subscriptions">
-        <h4><%= t('views.events.show.will_come') %></h4>
+        <h4><%= t('.will_come') %></h4>
         <div>
           <p>
           <%= render partial: 'subscriptions/subscription',
@@ -56,7 +56,7 @@
       </div>
       <% unless @event.user == current_user %>
         <div class="event-subscription-form">
-          <h4><%= t('views.events.show.will_go') %></h4>
+          <h4><%= t('.will_go') %></h4>
           <div>
             <%= render partial: 'subscriptions/form',
             locals: { subscription: @new_subscription || @event.subscriptions.build } %>
