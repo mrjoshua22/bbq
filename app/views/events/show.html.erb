@@ -16,10 +16,10 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="d-flex justify-content-left gap-2">
-              <%= link_to 'Изменить', edit_event_path(@event),
+              <%= link_to t('links.edit'), edit_event_path(@event),
                 class: 'btn btn-primary buffer-bottom', role: 'button' %>
-              <%= button_to 'Удалить', event_path(@event), method: :delete,
-                title: 'Удалить вопрос', class: 'btn btn-danger buffer-bottom',
+              <%= button_to t('buttons.destroy'), event_path(@event), method: :delete,
+                class: 'btn btn-danger buffer-bottom',
                 form: { data: { turbo_confirm: t('.destroy_confirm') }}%>
             </div>
           <% end %>
@@ -42,11 +42,11 @@
 
     <div class="col-md-4">
       <div class="event-owner">
-        <h4>Зовет:</h4>
+        <h4><%= t('views.events.show.call') %></h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
+        <h4><%= t('views.events.show.will_come') %></h4>
         <div>
           <p>
           <%= render partial: 'subscriptions/subscription',
@@ -56,7 +56,7 @@
       </div>
       <% unless @event.user == current_user %>
         <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
+          <h4><%= t('views.events.show.will_go') %></h4>
           <div>
             <%= render partial: 'subscriptions/form',
             locals: { subscription: @new_subscription || @event.subscriptions.build } %>

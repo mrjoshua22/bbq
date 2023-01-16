@@ -1,4 +1,4 @@
-<h2>Сменить пароль и почту</h2>
+<h2><%= t('devise.registrations.edit.header') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
   data: { turbo: false },
@@ -14,17 +14,17 @@
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div class="mb-3">
-      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+      <%= t('devise.registrations.edit.email_confirmations')%> <%= resource.unconfirmed_email %>
     </div>
   <% end %>
 
   <div class="mb-3">
     <%= f.label :password, class: 'form-label fw-bold' %>
-      <i>(оставьте поле пустым если не хотите менять его)</i>
+      <i>(<%= t('devise.registrations.edit.leave_blank') %>)</i>
     <%= f.password_field :password, class: 'form-control w-25',
       autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <em>Минимум <%= @minimum_password_length %> символов</em>
+      <em>(<%= @minimum_password_length %> <%= t('devise.registrations.edit.symbols_min') %>)</em>
     <% end %>
   </div>
 
@@ -36,19 +36,20 @@
 
   <div class="mb-3">
     <%= f.label :current_password, class: 'form-label fw-bold' %>
-      <i>(введите текущий пароль для подтверждения изменений)</i>
+      <i>(<%= t('devise.registrations.edit.current_password') %>)</i>
     <%= f.password_field :current_password, class: 'form-control w-25',
       autocomplete: "current-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Сохранить", class: 'btn btn-primary' %> или
-      <%= link_to 'вернуться', :back, class: 'text-decoration-none' %>
+    <%= f.submit t('devise.registrations.edit.submit'), class: 'btn btn-primary' %> или
+      <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>
   </div>
 <% end %>
 
 <div class="mt-3">
-  <%= button_to "Удалить профиль", registration_path(resource_name),
-    class: 'btn btn-danger', form: { data: { turbo_confirm: "Вы уверены?" }},
+  <%= button_to t('devise.registrations.edit.cancel_account'), registration_path(resource_name),
+    class: 'btn btn-danger',
+    form: { data: { turbo_confirm: t('devise.registrations.edit.cancel_account_confirmation') }},
     method: :delete %></p>
 </div>
