@@ -12,6 +12,7 @@ class Subscription < ApplicationRecord
     unless: -> { user.present? }
 
   validate :forbid_event_creator_to_subscribe, on: :create
+  validate :forbid_to_use_registered_email, on: :create
 
   def user_name
     if user.present?
@@ -30,6 +31,15 @@ class Subscription < ApplicationRecord
   end
 
   private
+
+  def forbid_to_use_registered_email
+    if User.find_by(email: self.user_email).present?
+      errors.add(
+        :user_email,
+        I18n.t('activerecord.errors.registered_user_email')
+      )
+    end
+  end
 
   def forbid_event_creator_to_subscribe
     if event.user == user

@@ -1,7 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_event, only: %i[create destroy]
   before_action :set_subscription, only: :destroy
-  before_action :check_email_existence, only: :create
 
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
@@ -27,12 +26,6 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-
-  def check_email_existence
-    if User.exists?(email: subscription_params[:user_email])
-      redirect_to @event, alert: I18n.t('controllers.subscriptions.email_error')
-    end
-  end
 
   def set_event
     @event = Event.find(params[:event_id])

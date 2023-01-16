@@ -22,6 +22,7 @@ ru:
         user_email: 'Email'
     errors:
       forbid_subscription: 'не может подписаться на созданное им событие'
+      registered_user_email: 'занят. Выполните вход чтобы подписаться или введите другой адрес электронной почты.'
   
   controllers:
     events:
