@@ -1,7 +1,8 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger mb-2">
+  <div data-controller="flash" class="alert alert-danger alert-dismissible fade show mb-2"
+    data-timeout="3000" role="alert">
     <div class="lead buffer-bottom">
       <%= t('partials.form_errors_count') %> <%= t(:error, count: errors.count) %>
     </div>
@@ -11,5 +12,7 @@
         <li><%= error.full_message %></li>
       <% end %>
     </ul>
+    <button data-action="flash#dismiss" type="button" class="btn-close"
+      data-bs-dismiss="alert" aria-label="Close">
   </div>
 <% end %>
