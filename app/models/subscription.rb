@@ -33,7 +33,7 @@ class Subscription < ApplicationRecord
   private
 
   def forbid_to_use_registered_email
-    if User.find_by(email: self.user_email).present?
+    if User.find_by(email: self.user_email).present? && user.nil?
       errors.add(
         :user_email,
         I18n.t('activerecord.errors.registered_user_email')
