@@ -6,11 +6,20 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions
 
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_fill: [100, 100]
+    attachable.variant :default, resize_to_fill: [400, 400]
+  end
+
   before_validation :set_name, on: :create
 
   after_commit :link_subscriptions, on: :create
 
   validates :name, presence: true, length: { maximum: 35 }
+
+  validates :avatar,
+    content_type: %w[image/jpeg image/png image/gif],
+    size: { less_than: 5.megabytes }
 
   private
 

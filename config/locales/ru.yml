@@ -9,6 +9,7 @@ ru:
         name: 'Имя'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        avatar: 'Аватар'
       event:
         title: 'Название'
         address: 'Место проведения'
@@ -23,7 +24,9 @@ ru:
     errors:
       forbid_subscription: 'не может подписаться на созданное им событие'
       registered_user_email: 'занят. Выполните вход чтобы подписаться или введите другой адрес электронной почты.'
-  
+      messages:
+        file_size_out_of_range: "размером %{file_size} больше требуемого"
+
   controllers:
     events:
       created: 'Событие успешно создано'
