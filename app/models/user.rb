@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :events
   has_many :comments, dependent: :destroy
   has_many :subscriptions
+  has_many :photos
 
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
