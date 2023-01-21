@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1><%= t('.title', event: @event.title) %></h1>
 <p><%= @comment.body %></p>
 <p><%= t('.author') %>: <strong><%= @comment.user_name %></strong></p>
 

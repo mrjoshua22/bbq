@@ -5,13 +5,13 @@ class EventMailer < ApplicationMailer
     @name = subscription.user_name
     @event = event
 
-    mail to: event.user.email, subject: "Новая подписка на #{event.title}"
+    mail to: event.user.email, subject: I18n.t('.subject', event: @event.title)
   end
 
   def comment(event, comment, email)
     @comment = comment
     @event = event
 
-    mail to: email, subject: "Новый комментарий на @ #{event.title}"
+    mail to: email, subject: I18n.t('.subject', event: @event.title)
   end
 end
