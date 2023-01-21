@@ -9,7 +9,7 @@
 </h3>
 
 <%= t('.datetime') %>
-<h4><%= l @event.datetime %></h4>
+<h4><%= l @event.datetime, format: :long %></h4>
 
 <%= t('.owner') %>
 <h4><%= @event.user.name %></h4>
