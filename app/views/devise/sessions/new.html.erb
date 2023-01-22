@@ -1,6 +1,6 @@
 <h2 class="text-center"><%= t('.header') %></h2>
 
-<div class="container d-flex justify-content-center">
+<div class="container mb-3 d-flex justify-content-center">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name),
     data: { turbo: false}) do |f| %>
 
@@ -29,5 +29,7 @@
       <%= f.submit t('.submit'), class: 'btn btn-primary' %> <%= t('or') %>
       <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>
     </div>
+
+    <%= render 'devise/shared/links', resource: resource %>
   <% end %>
 </div>

@@ -1,0 +1,31 @@
+<h2 class="text-center"><%= t('.header')%></h2>
+
+<div class="container mb-3 d-flex justify-content-center">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name),
+    html: { method: :put }, data: { turbo: false }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="input-group">
+      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+      <%= f.password_field :password, class: 'form-control',
+        placeholder: t('.password_placeholder'),
+        autocomplete: 'new-password' %>
+    </div>
+
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> <%= t('.symbols_min') %>)</em>
+    <% end %>
+
+    <div class="input-group mb-4 mt-3">
+      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+      <%= f.password_field :password_confirmation, class: 'form-control',
+        placeholder: t('.password_confirmation_placeholder'),
+        autocomplete: 'new-password' %>
+    </div>
+
+    <div class="actions mb-4">
+      <%= f.submit t('.submit'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
