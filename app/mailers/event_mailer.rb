@@ -9,11 +9,10 @@ class EventMailer < ApplicationMailer
       subject: I18n.t('event_mailer.subscription.subject', event: @event.title)
   end
 
-  def comment(event, comment, email)
+  def comment(comment, email)
     @comment = comment
-    @event = event
 
     mail to: email,
-      subject: I18n.t('event_mailer.comment.subject', event: @event.title)
+      subject: I18n.t('event_mailer.comment.subject', event: @comment.event.title)
   end
 end

@@ -1,10 +1,10 @@
-<h1><%= t('.title', event: @event.title) %></h1>
+<%= t('.title', event: @comment.event.title) %>
 -------
 
 <%= @comment.body %>
 <%= t('.author') %>: <%= @comment.user_name %>
 
 --------------------
-<%= t('.event') %>: <%= @event.title %>
-<%= t('.datetime') %>: <%= l @event.datetime, format: :long %>
-<%= t('.owner') %>: <%= @event.user.name %>
+<%= t('.event') %>: <%= @comment.event.title %>
+<%= t('.datetime') %>: <%= l @comment.event.datetime, format: :long %>
+<%= t('.owner') %>: <%= @comment.event.user.name %>
