@@ -23,6 +23,11 @@
     <%= form.text_area :description, class: 'form-control' %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :pincode, class: 'form-label fw-bold' %>
+    <%= form.text_field :pincode, class: 'form-control' %>
+  </div>
+
   <div class="actions">
     <%= form.submit t('buttons.save'), class: 'btn btn-primary' %> <%= t('or') %>
       <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>

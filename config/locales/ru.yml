@@ -18,6 +18,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Код доступа'
       comment:
         body: 'Текст комментария'
         user_name: 'Ваше имя'
@@ -39,6 +40,7 @@ ru:
       created: 'Событие успешно создано'
       updated: 'Событие успешно обновлено'
       destroyed: 'Событие удалено :('
+      wrong_pincode: 'Неверный пинкод!'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
@@ -72,6 +74,9 @@ ru:
       destroy_confirm: 'Вы точно хотите удалить это событие?'
     edit:
       header: 'Редактирование события'
+    password_form:
+      header: 'Доступ только по пин-коду'
+      pincode_placeholder: 'Пинкод'
   partials:
     form_errors_count: 'В вашей форме'
   or: 'или'
@@ -110,6 +115,7 @@ ru:
     sign_up: 'Зарегистрироваться'
     create_event: 'Создать событие'
     edit: 'Изменить'
+    main: 'На главную'
 
   devise:
     registrations:

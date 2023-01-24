@@ -22,6 +22,10 @@ class User < ApplicationRecord
     content_type: %w[image/jpeg image/png image/gif],
     size: { less_than: 5.megabytes }
 
+  def subscriber?(event)
+    event.subscribers.find_by(email: email).present?
+  end
+
   private
 
   def link_subscriptions
