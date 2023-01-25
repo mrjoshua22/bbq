@@ -25,6 +25,7 @@
 
 .event-description * {
   color: white;
+  margin: 10px 5px;
 }
 
 .event-description a {

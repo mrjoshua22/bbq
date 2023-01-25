@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<%= Rails.application.credentials.dig(:ym, :key) %>"
+      type="text/javascript"></script>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
