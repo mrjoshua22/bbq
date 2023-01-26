@@ -97,8 +97,8 @@ Rails.application.configure do
     location:  "/usr/sbin/sendmail", arguments: ["-i"]
   }
 
-  config.action_mailer.default_url_options = { :host => "bbq.mrjoshua22.ru" }
+  config.action_mailer.default_url_options = { :host => ENV["BBQ_HOST_NAME"] }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_options = {from: 'info@bbq.mrjoshua22.ru'}
+  config.action_mailer.default_options = {from: ENV["BBQ_MAIL"]}
 end
