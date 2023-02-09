@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: bbq
+  password: <%= ENV['BBQ_DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: bbq_development
+
+test:
+  <<: *default
+  database: bbq_test
+
+production:
+  <<: *default
+  database: bbq_production
+  username: bbq
+  password: <%= ENV['BBQ_DATABASE_PASSWORD'] %>
