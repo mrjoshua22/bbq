@@ -40,7 +40,6 @@ ru:
       created: 'Событие успешно создано'
       updated: 'Событие успешно обновлено'
       destroyed: 'Событие удалено :('
-      wrong_pincode: 'Неверный пинкод!'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
@@ -178,3 +177,7 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+
+  pundit:
+    not_authorized: 'Вам сюда нельзя'
+    wrong_pincode: 'Неверный пинкод!'

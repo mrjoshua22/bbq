@@ -1,8 +1,10 @@
 <h1><%= t('.header') %></h1>
 
-<div class="buffer-both">
-  <%= link_to t('links.create_event'), new_event_path, class: 'btn btn-success' %>
-</div>
+<% if policy(Event).create? %>
+  <div class="buffer-both">
+    <%= link_to t('links.create_event'), new_event_path, class: 'btn btn-success' %>
+  </div>
+<% end %>
 
 <div class="row buffer-bottom">
   <%= render partial: 'events/event', collection: @events %>
