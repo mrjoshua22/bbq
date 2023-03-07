@@ -12,7 +12,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    user.user.present?
+    user.present?
   end
 
   def edit?
@@ -33,16 +33,16 @@ class EventPolicy < ApplicationPolicy
   private
 
   def check_pincode(event)
-    if user.user.present? &&
-      (user.user == event.user || user.user.subscriber?(event))
+    if user.present? &&
+      ( event.user == user || user.subscriber?(event))
       return true
     end
 
-    if event.pincode_valid?(user.pincode)
-      user.session["events_#{event.id}_pincode"] = user.pincode
+    if event.pincode_valid?(pincode)
+      session["events_#{event.id}_pincode"] = pincode
     end
 
-    unless event.pincode_valid?(user.session["events_#{event.id}_pincode"])
+    unless event.pincode_valid?(session["events_#{event.id}_pincode"])
       return false
     end
 
@@ -50,6 +50,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def user_is_owner?(event)
-    user.user.present? && event.user == user.user
+    user.present? && event.user == user
   end
 end

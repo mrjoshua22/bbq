@@ -1,6 +1,5 @@
 class UserContext
-  attr_reader :user, :pincode
-  attr_accessor :session
+  attr_reader :user, :session, :pincode
 
   def initialize(user, session, pincode)
     @user = user
