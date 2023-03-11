@@ -35,5 +35,7 @@ module Bbq
     config.generators.system_tests = nil
 
     config.i18n.default_locale = :ru
+
+    config.asset_host = ENV["BBQ_HOST_NAME"]
   end
 end

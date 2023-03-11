@@ -1,0 +1,11 @@
+<%= t('.title', event: @event.title) %>
+-------
+
+<%= link_to t('.image_link'),
+  rails_blob_url(@photo.image, disposition: "attachment") %>
+<%= t('.author') %>: <%= @photo.user.name %>
+
+--------------------
+<%= t('.event') %>: <%= @event.title %>
+<%= t('.datetime') %>: <%= l @event.datetime, format: :long %>
+<%= t('.owner') %>: <%= @event.user.name %>

@@ -5,6 +5,7 @@ class Photo < ApplicationRecord
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_fill: [100, 100]
     attachable.variant :default, resize_to_fill: [800, 800]
+    attachable.variant :mail, resize_to_fill: [400, 400]
   end
 
   validates :image,

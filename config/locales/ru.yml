@@ -168,6 +168,16 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      subject: 'Новое фото в %{event}'
+      title: 'Новая фото в %{event}'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+      image_link: 'Ссылка на изображение'
     subscription:
       subject: 'Новая подписка на %{event}'
       title: 'Новая подписка на %{event}'
