@@ -93,6 +93,10 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
 
+  photos:
+    photo:
+      destroy_confirm: 'Вы точно хотите удалить это фото?'
+
   error:
     one: '%{count} ошибка'
     few: '%{count} ошибки'
