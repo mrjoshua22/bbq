@@ -1,5 +1,9 @@
 <h1><%= t('.title', event: @event.title) %></h1>
 <p>
+  <%= link_to t('.event_link'), event_url(@event) %>
+</p>
+
+<p>
   <%= image_tag @photo.image.variant(:mail) %>
 </p>
 <p><%= t('.author') %>: <strong><%= @photo.user.name %></strong></p>

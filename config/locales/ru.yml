@@ -182,6 +182,7 @@ ru:
       datetime: 'Состоится'
       owner: 'Организатор'
       image_link: 'Ссылка на изображение'
+      event_link: 'Ссылка на событие'
     subscription:
       subject: 'Новая подписка на %{event}'
       title: 'Новая подписка на %{event}'
