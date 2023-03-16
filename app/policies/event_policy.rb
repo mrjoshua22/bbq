@@ -27,9 +27,6 @@ class EventPolicy < ApplicationPolicy
     user_is_owner?(record)
   end
 
-  class Scope < Scope
-  end
-
   private
 
   def check_pincode(event)
@@ -42,11 +39,7 @@ class EventPolicy < ApplicationPolicy
       session["events_#{event.id}_pincode"] = pincode
     end
 
-    unless event.pincode_valid?(session["events_#{event.id}_pincode"])
-      return false
-    end
-
-    true
+    event.pincode_valid?(session["events_#{event.id}_pincode"])
   end
 
   def user_is_owner?(event)

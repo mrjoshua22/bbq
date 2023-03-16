@@ -11,16 +11,13 @@ class EventsController < ApplicationController
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
 
-    begin
-      authorize @event
-    rescue Pundit::NotAuthorizedError
-      if @event.pincode.present?
-        flash.now[:alert] =
-          I18n.t('pundit.wrong_pincode') if params[:pincode].present?
+    authorize @event
 
-        render 'password_form'
-      end
-    end
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] =
+      I18n.t('pundit.wrong_pincode') unless params[:pincode].nil?
+
+    render 'password_form'
   end
 
   def new
