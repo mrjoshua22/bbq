@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:github]
 
   has_many :events
   has_many :comments, dependent: :destroy
@@ -21,6 +22,27 @@ class User < ApplicationRecord
   validates :avatar,
     content_type: %w[image/jpeg image/png image/gif],
     size: { less_than: 5.megabytes }
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.where(email: data['email']&.downcase).first
+
+    unless user
+        user = User.create(
+          name: data['name'],
+          email: data['email'],
+          password: Devise.friendly_token[0,20],
+          url: data['urls'].values.first,
+          provider: access_token.provider
+        )
+    end
+
+    user
+  end
+
+  def email_required?
+    super && provider.blank?
+  end
 
   def subscriber?(event)
     event.subscribers.find_by(email: email).present?
