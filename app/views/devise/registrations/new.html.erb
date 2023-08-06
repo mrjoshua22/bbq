@@ -35,7 +35,11 @@
       <%= f.submit t('.submit'), class: 'btn btn-primary' %> <%= t('or') %>
       <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>
     </div>
-
-    <%= render 'devise/shared/links', resource: resource %>
   <% end %>
+</div>
+
+<div class="container mb-3 ml-n2 d-flex justify-content-center">
+  <div>
+    <%= render 'devise/shared/links', resource: resource %>
+  </div>
 </div>

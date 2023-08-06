@@ -2,7 +2,7 @@
 
 <div class="container mb-3 d-flex justify-content-center">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name),
-    data: { turbo: false}) do |f| %>
+    data: { turbo: false }) do |f| %>
 
     <div class="input-group mb-4 mt-3">
       <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
@@ -29,7 +29,11 @@
       <%= f.submit t('.submit'), class: 'btn btn-primary' %> <%= t('or') %>
       <%= link_to t('links.back'), :back, class: 'text-decoration-none' %>
     </div>
-
-    <%= render 'devise/shared/links', resource: resource %>
   <% end %>
+</div>
+
+<div class="container mb-3 ml-n1 d-flex justify-content-center">
+  <div>
+    <%= render 'devise/shared/links', resource: resource %>
+  </div>
 </div>
