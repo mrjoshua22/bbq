@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:github]
+         :omniauthable, omniauth_providers: %i[github vkontakte]
 
   has_many :events
   has_many :comments, dependent: :destroy
@@ -25,7 +25,12 @@ class User < ApplicationRecord
 
   def self.from_omniauth(access_token)
     data = access_token.info
-    user = User.where(email: data['email']&.downcase).first
+    user =
+      if data['email'].present?
+        User.where(email: data['email']&.downcase).first
+      else
+        User.where(url: data['urls'].values.first).first
+      end
 
     unless user
         user = User.create(
