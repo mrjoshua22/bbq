@@ -276,6 +276,10 @@ Devise.setup do |config|
     Rails.application.credentials.dig(:github_oauth, :id),
     Rails.application.credentials.dig(:github_oauth, :secret)
 
+  config.omniauth :google_oauth2,
+    Rails.application.credentials.dig(:google_oauth, :id),
+    Rails.application.credentials.dig(:google_oauth, :secret)
+
   config.omniauth :vkontakte,
     Rails.application.credentials.dig(:vk_oauth, :id),
     Rails.application.credentials.dig(:vk_oauth, :secret)

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[github vkontakte]
+         :omniauthable, omniauth_providers: %i[github google_oauth2 vkontakte]
 
   has_many :events
   has_many :comments, dependent: :destroy
@@ -37,7 +37,7 @@ class User < ApplicationRecord
           name: data['name'],
           email: data['email'],
           password: Devise.friendly_token[0,20],
-          url: data['urls'].values.first,
+          url: data['urls']&.values&.first,
           provider: access_token.provider
         )
     end
