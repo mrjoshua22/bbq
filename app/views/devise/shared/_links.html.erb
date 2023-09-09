@@ -37,6 +37,7 @@
 
 <div class="mb-3">
   <%- if devise_mapping.omniauthable? %>
+    <p><%= t('.oauth_sign_in') %></p>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= button_to image_tag("#{provider}.png", size: '35'),
         omniauth_authorize_path(resource_name, provider), data: { turbo: false },
