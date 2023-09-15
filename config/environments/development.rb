@@ -8,6 +8,9 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.active_job.queue_adapter = :resque
+  config.active_job.queue_name_prefix = "bbq_#{Rails.env}"
+
   # Do not eager load code on boot.
   config.eager_load = false
 
