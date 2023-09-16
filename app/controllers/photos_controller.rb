@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
     all_emails.delete(photo.user&.email)
 
     all_emails.each do |mail|
-      EventMailer.photo(photo, mail).deliver_now
+      EventMailer.photo(photo, mail).deliver_later
     end
   end
 end
