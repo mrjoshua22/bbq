@@ -49,6 +49,10 @@ class User < ApplicationRecord
     super && provider.blank?
   end
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   def subscriber?(event)
     event.subscribers.find_by(email: email).present?
   end
