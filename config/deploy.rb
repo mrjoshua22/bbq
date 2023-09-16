@@ -19,8 +19,9 @@ set :keep_releases, 3
 
 set :conditionally_migrate, true
 
-before 'deploy:starting', 'config_files:upload'
+# before 'deploy:starting', 'config_files:upload'
 after 'deploy:publishing', 'application:reload'
+after 'deploy:restart', 'resque:restart'
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
